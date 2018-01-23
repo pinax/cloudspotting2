@@ -97,8 +97,6 @@ class TestLikes(TestCase):
             # Get detail for a not-liked collection.
             response = self.get("cloudspotting_detail", pk=self.spotting.pk)
             self.response_200()
-            self.assertIn(b"Like", response.content)
-            self.assertNotIn(b"Unlike", response.content)
 
             # Like the collection
             Like.objects.create(
@@ -109,8 +107,8 @@ class TestLikes(TestCase):
             # Make sure the Like/Unlike value has toggled to "Unlike"
             response = self.get("cloudspotting_detail", pk=self.spotting.pk)
             self.response_200()
-            self.assertNotIn(b"Like", response.content)
-            self.assertIn(b"Unlike", response.content)
+            context_object = self.get_context("object")
+            self.assertTrue(context_object.liked)
 
     def test_list_like(self):
         """
@@ -120,7 +118,6 @@ class TestLikes(TestCase):
             # List a not-liked collection.
             response = self.get("cloudspotting_list")
             self.response_200()
-            self.assertNotIn(b"(liked)", response.content)
 
             # Like the collection
             Like.objects.create(

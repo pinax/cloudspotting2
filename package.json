@@ -5,7 +5,7 @@
   },
   "scripts": {
     "clean": "rm -rf static/dist && mkdir -p static/dist/js && mkdir -p static/dist/css && mkdir -p static/dist/images",
-    "build:js": "browserify -t [ babelify --presets [ env ] ] -t envify -o static/dist/js/site.js static/src/js/index.js",
+    "build:js": "browserify -t [ babelify --presets [ env react ] ] -t envify -o static/dist/js/site.js static/src/js/index.js",
     "build:css": "node-sass static/src/scss/index.scss static/dist/css/app.css",
     "copy:images": "cp -r static/src/images/* static/dist/images/ 2>/dev/null || :",
     "optimize:js": "uglifyjs static/dist/js/site.js -m -c warnings=false -o static/dist/js/site.js",
@@ -13,7 +13,7 @@
     "optimize": "npm run optimize:js && npm run optimize:css",
     "watch:test": "onchange static/src/js/**/*.js -- npm run test",
     "watch:lint": "onchange static/src/js/**/*.js -- npm run lint",
-    "watch:js": "watchify -t [ babelify --presets [ env ] ] -t envify static/src/js/index.js -o 'exorcist static/dist/js/site.js.map > static/dist/js/site.js' -dv",
+    "watch:js": "watchify -t [ babelify --presets [ env react ] ] -t envify static/src/js/index.js -o 'exorcist static/dist/js/site.js.map > static/dist/js/site.js' -dv",
     "watch:css": "node-sass static/src/scss/index.scss static/dist/css/app.css --watch -r",
     "build": "npm run clean && concurrently \"npm run build:js\" \"npm run build:css\" \"npm run copy:images\" && npm run optimize",
     "watch": "npm run clean && npm run copy:images && npm run build:css && concurrently --raw \"npm run watch:lint\" \"npm run watch:js\" \"npm run watch:css\"",
@@ -28,6 +28,7 @@
   "dependencies": {
     "babel-core": "6.26.0",
     "babel-preset-env": "1.6.1",
+    "babel-preset-react": "6.24.1",
     "babelify": "8.0.0",
     "bootstrap": "4.0.0",
     "browser-sync": "2.23.5",
@@ -48,9 +49,10 @@
     "mocha": "4.1.0",
     "node-sass": "4.7.2",
     "onchange": "3.3.0",
-    "pinax-images-panel": "^0.2.2",
-    "react": "^0.14.8",
-    "react-dom": "^0.14.8",
+    "pinax-images-panel": "0.3.2",
+    "prop-types": "15.6.0",
+    "react": "16.2.0",
+    "react-dom": "^16.2.0",
     "uglify-js": "3.3.7",
     "watchify": "3.9.0"
   }

@@ -17,9 +17,9 @@ urlpatterns = [
 
     path("cloudspotting/", views.CloudSpottingListView.as_view(), name="cloudspotting_list"),
     path("cloudspotting/create/", views.CloudSpottingCreateView.as_view(), name="cloudspotting_create"),
-    path("cloudspotting/(?P<pk>\d+)/", views.CloudSpottingDetailView.as_view(), name="cloudspotting_detail"),
-    path("cloudspotting/(?P<pk>\d+)/update/", views.CloudSpottingUpdateView.as_view(), name="cloudspotting_update"),
-    path("cloudspotting/(?P<pk>\d+)/delete/", views.CloudSpottingDeleteView.as_view(), name="cloudspotting_delete"),
+    path("cloudspotting/<int:pk>/", views.CloudSpottingDetailView.as_view(), name="cloudspotting_detail"),
+    path("cloudspotting/<int:pk>/update/", views.CloudSpottingUpdateView.as_view(), name="cloudspotting_update"),
+    path("cloudspotting/<int:pk>/delete/", views.CloudSpottingDeleteView.as_view(), name="cloudspotting_delete"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

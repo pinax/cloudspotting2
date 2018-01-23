@@ -16,25 +16,41 @@
             {% blocktrans %}
             CloudSpotting is a demo project built using the Pinax
             <a href="https://github.com/pinax/pinax-starter-projects/tree/accounts">"accounts"</a> starter project.
-            This project demonstrates many Pinax apps in a working application:
-            <ul>
-                <li>`pinax-announcements`</li>
-                <li>`pinax-images`</li>
-                <li>`pinax-likes`</li>
-                <li>`pinax-testimonials`</li>
-                <li>`pinax-messages`</li>
-                <li>`pinax-eventlog`</li>
-                <li>`pinax-webanalytics`</li>
-            </ul>
+            This project demonstrates many Pinax apps in a working application.
             {% endblocktrans %}
             </p>
             {% if not user.is_authenticated %}
             {% url "account_login" as login_url %}
             {% url "account_signup" as signup_url %}
             <p class="mb-5 lead">{% blocktrans %}You can <a href="{{ login_url }}" class="btn btn-secondary">Log In</a> or <a href="{{ signup_url }}" class="btn btn-primary">Sign Up</a> to try out the site.{% endblocktrans %}</p>
+            <p class="mb-5 lead">{% blocktrans %}Cloudspotting2 was built using Pinax:{% endblocktrans %}</p>
             {% endif %}
+            <h4>Pinax Project Account</h4>
             <img src="http://pinaxproject.com/pinax-design/tessellations/Project%20Account.png" />
-        </div>
+            <h3>Plus</h3>
+            <div class="additionals" style="display: flex; justify-content: space-around; text-align: center;">
+                <a href="https://github.com/pinax/pinax-announcements">
+                    <img src="http://pinaxproject.com/pinax-design/patches/pinax-announcements.svg" />
+                    <h4 class="mt-2">pinax-announcements</h4>
+                </a>
+                <a href="https://github.com/pinax/pinax-images">
+                    <img src="http://pinaxproject.com/pinax-design/patches/pinax-images.svg" />
+                    <h4 class="mt-2">pinax-images</h4>
+                </a>
+                <a href="https://github.com/pinax/pinax-likes">
+                    <img src="http://pinaxproject.com/pinax-design/patches/pinax-likes.svg" />
+                    <h4 class="mt-2">pinax-likes</h4>
+                </a>
+                <a href="https://github.com/pinax/pinax-messages">
+                    <img src="http://pinaxproject.com/pinax-design/patches/pinax-messages.svg" />
+                    <h4 class="mt-2">pinax-messages</h4>
+                </a>
+                <a href="https://github.com/pinax/pinax-testimonials">
+                    <img src="http://pinaxproject.com/pinax-design/patches/pinax-testimonials.svg" />
+                    <h4 class="mt-2">pinax-testimonials</h4>
+                </a>
+            </div>
+         </div>
     </section>
     <section id="content-section">
         <div id="content-body">
