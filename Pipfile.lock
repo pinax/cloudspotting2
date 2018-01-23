@@ -1,0 +1,102 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "88255d7a98a9cdf83849e1c3dd97ec7ab9754082e011715987d1925dc6e48230"
+        },
+        "host-environment-markers": {
+            "implementation_name": "cpython",
+            "implementation_version": "3.6.3",
+            "os_name": "posix",
+            "platform_machine": "x86_64",
+            "platform_python_implementation": "CPython",
+            "platform_release": "17.3.0",
+            "platform_system": "Darwin",
+            "platform_version": "Darwin Kernel Version 17.3.0: Thu Nov  9 18:09:22 PST 2017; root:xnu-4570.31.3~1/RELEASE_X86_64",
+            "python_full_version": "3.6.3",
+            "python_version": "3.6",
+            "sys_platform": "darwin"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.6"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.python.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "django": {
+            "hashes": [
+                "sha256:52475f607c92035d4ac8fee284f56213065a4a6b25ed43f7e39df0e576e69e9f",
+                "sha256:d96b804be412a5125a594023ec524a2010a6ffa4d408e5482ab6ff3cb97ec12f"
+            ],
+            "version": "==2.0.1"
+        },
+        "django-appconf": {
+            "hashes": [
+                "sha256:ddab987d14b26731352c01ee69c090a4ebfc9141ed223bef039d79587f22acd9",
+                "sha256:6a4d9aea683b4c224d97ab8ee11ad2d29a37072c0c6c509896dd9857466fb261"
+            ],
+            "version": "==1.0.2"
+        },
+        "django-bootstrap-form": {
+            "hashes": [
+                "sha256:2edeb528bcdd0de454575ca84be06e15130baf286b9d302eacbd893cbf691b94"
+            ],
+            "version": "==3.3"
+        },
+        "django-user-accounts": {
+            "hashes": [
+                "sha256:e8f0adf2a7134534887457bc656617e4b8111f31f7a657d54e8c43ed4353473d",
+                "sha256:dd03cfe6ca0ec5f1e8140a624b05eaf010918208d3720d1d0dac03e09c3da91b"
+            ],
+            "version": "==2.0.3"
+        },
+        "jsonfield": {
+            "hashes": [
+                "sha256:a0a7fdee736ff049059409752b045281a225610fecbda9b9bd588ba976493c12",
+                "sha256:beb1cd4850d6d6351c32daefcb826c01757744e9c863228a642f87a1a4acb834"
+            ],
+            "version": "==2.0.2"
+        },
+        "pinax-eventlog": {
+            "hashes": [
+                "sha256:667894eb441fdf3547e1bffb495b41e45225c9b7c37644eb8f67d2c2018f8db4",
+                "sha256:385da6ccaedf09c1ae1ae07f05513d8490fdc43d761ac1da91edd276e796e660"
+            ],
+            "version": "==2.0.2"
+        },
+        "pinax-templates": {
+            "hashes": [
+                "sha256:c85ef43ca0cd9300cd0b9d14d62b39ec3c97eb49c1b27c8ef005e72369f43140"
+            ],
+            "version": "==1.0.0"
+        },
+        "pinax-webanalytics": {
+            "hashes": [
+                "sha256:e33df6dd461dc9424607c8e792c009fbea84d74b76040edb25fd4ec8389d8db5",
+                "sha256:aa93e6e0c87c0734e40bbab159432542429bc92604d36553096cfa09d3f6df29"
+            ],
+            "version": "==4.0.1"
+        },
+        "pytz": {
+            "hashes": [
+                "sha256:80af0f3008046b9975242012a985f04c5df1f01eed4ec1633d56cc47a75a6a48",
+                "sha256:feb2365914948b8620347784b6b6da356f31c9d03560259070b2f30cff3d469d",
+                "sha256:59707844a9825589878236ff2f4e0dc9958511b7ffaae94dc615da07d4a68d33",
+                "sha256:d0ef5ef55ed3d37854320d4926b04a4cb42a2e88f71da9ddfdacfde8e364f027",
+                "sha256:c41c62827ce9cafacd6f2f7018e4f83a6f1986e87bfd000b8cfbd4ab5da95f1a",
+                "sha256:8cc90340159b5d7ced6f2ba77694d946fc975b09f1a51d93f3ce3bb399396f94",
+                "sha256:dd2e4ca6ce3785c8dd342d1853dd9052b19290d5bf66060846e5dc6b8d6667f7",
+                "sha256:699d18a2a56f19ee5698ab1123bbcc1d269d061996aeb1eda6d89248d3542b82",
+                "sha256:fae4cffc040921b8a2d60c6cf0b5d662c1190fe54d718271db4eb17d44a185b7"
+            ],
+            "version": "==2017.3"
+        }
+    },
+    "develop": {}
+}
