@@ -134,7 +134,12 @@ INSTALLED_APPS = [
 
     # external
     "account",
+    "pinax.announcements",
     "pinax.eventlog",
+    "pinax.images",
+    "pinax.likes",
+    "pinax.messages",
+    "pinax.testimonials",
     "pinax.webanalytics",
 
     # project
@@ -189,4 +194,10 @@ ACCOUNT_USE_AUTH_AUTHENTICATE = True
 
 AUTHENTICATION_BACKENDS = [
     "account.auth_backends.UsernameAuthenticationBackend",
+    "pinax.announcements.auth_backends.AnnouncementPermissionsBackend",
+    "pinax.likes.auth_backends.CanLikeBackend",
 ]
+
+PINAX_LIKES_LIKABLE_MODELS = {
+    "cloudspotting2.CloudSpotting": {},
+}

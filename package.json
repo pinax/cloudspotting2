@@ -41,12 +41,16 @@
     "eslint": "4.15.0",
     "eslint-plugin-babel": "4.1.2",
     "exorcist": "1.0.0",
+    "font-awesome": "^4.5.0",
     "jquery": "3.2.1",
     "jsdom": "11.5.1",
     "jsdom-global": "3.0.2",
     "mocha": "4.1.0",
     "node-sass": "4.7.2",
     "onchange": "3.3.0",
+    "pinax-images-panel": "^0.2.2",
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8",
     "uglify-js": "3.3.7",
     "watchify": "3.9.0"
   }

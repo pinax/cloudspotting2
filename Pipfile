@@ -7,15 +7,21 @@ name = "pypi"
 
 [packages]
 
-Django = "==2.0.1"
+django = "==2.0.1"
 pinax-templates = "==1.0.0"
 django-user-accounts = "==2.0.3"
 pinax-eventlog = "==2.0.2"
 pinax-webanalytics = "==4.0.1"
+pinax-images = ">=3.0.1"
+pinax-likes = ">=3.0.1"
+pinax-messages = ">=2.0.2"
+pinax-testimonials = ">=2.0.4"
+pinax-announcements = ">=3.0.1"
 
 
 [dev-packages]
 
+django-test-plus = ">=1.0.22"
 
 
 [requires]
