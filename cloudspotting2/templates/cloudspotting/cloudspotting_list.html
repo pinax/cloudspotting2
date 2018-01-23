@@ -1,0 +1,65 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load pinax_likes_tags %}
+{% load pinax_testimonials_tags %}
+{% load pinax_announcements_tags %}
+
+{% block head_title %}CloudSpotting{% endblock %}
+
+{% block body_class %}home{% endblock %}
+
+{% block body %}
+
+    <h2 class="text-center">{% blocktrans %}CloudSpotting List{% endblocktrans %}</h2>
+    <p><a href="{% url "cloudspotting_create" %}" class="btn btn-default">Add CloudSpotting</a></p>
+    <div class="row">
+        {% liked object_list by request.user as liked_list %}
+        {% for cloudspotting in liked_list %}
+        <div class="col-md-4">
+            <h4>{{ cloudspotting }}</h4>
+            {% with cloudspotting.image_set.image_data.images as images %}
+            {% if images %}
+            <div class="media-panel">
+                <a href="{% url "cloudspotting_detail" cloudspotting.pk %}">
+                    {% with cloudspotting.image_set.image_data.primaryImage|default:images.0 as image %}
+                        <img class="{% if image.is_primary %}primary{% endif %}" style="width:100%" src="{{ image.medium_thumbnail }}" />
+                    {% endwith %}
+                </a>
+            </div>
+            {% endif %}
+            {% endwith %}
+            {% if cloudspotting.liked %}<i class="fa fa-heart text-danger"></i>{% else %}<i class="fa fa-heart-o"></i>{% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <h2 class="text-center">{% blocktrans %}Testimonials{% endblocktrans %}</h2>
+    <div>
+        {% random_testimonial as quote %}
+        {% if quote %}
+        "{{ quote.text }}" - {{ quote.author }}
+        {% endif %}
+    </div>
+
+{% announcements as announcements_list %}
+{% if announcements_list %}
+    <h2 class="text-center">{% blocktrans %}Announcements{% endblocktrans %}</h2>
+
+    <div class="announcements">
+        {% for announcement in announcements_list %}
+            <div class="announcement">
+                <strong>{{ announcement.title }}</strong><br />
+                {{ announcement.content }}
+                {% if announcement.dismiss_url %}
+                    <a href="{{ announcement.dismiss_url }}" class="btn ajax" data-method="post" data-replace-closest=".announcement">
+                        Clear
+                    </a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+
+{% endblock %}

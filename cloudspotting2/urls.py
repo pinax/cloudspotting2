@@ -1,15 +1,25 @@
 from django.conf import settings
+from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls.static import static
-from django.views.generic import TemplateView
 
-from django.contrib import admin
+from . import views
 
 
 urlpatterns = [
-    path("", TemplateView.as_view(template_name="homepage.html"), name="home"),
+    path("", views.Home.as_view(), name="home"),
     path("admin/", admin.site.urls),
     path("account/", include("account.urls")),
+    path("ajax/images/", include("pinax.images.urls", namespace="pinax_images")),
+    path("likes/", include("pinax.likes.urls", namespace="pinax_likes")),
+    path("announcements/", include("pinax.announcements.urls", namespace="pinax_announcements")),
+    path("messages/", include("pinax.messages.urls", namespace="pinax_messages")),
+
+    path("cloudspotting/", views.CloudSpottingListView.as_view(), name="cloudspotting_list"),
+    path("cloudspotting/create/", views.CloudSpottingCreateView.as_view(), name="cloudspotting_create"),
+    path("cloudspotting/(?P<pk>\d+)/", views.CloudSpottingDetailView.as_view(), name="cloudspotting_detail"),
+    path("cloudspotting/(?P<pk>\d+)/update/", views.CloudSpottingUpdateView.as_view(), name="cloudspotting_update"),
+    path("cloudspotting/(?P<pk>\d+)/delete/", views.CloudSpottingDeleteView.as_view(), name="cloudspotting_delete"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
