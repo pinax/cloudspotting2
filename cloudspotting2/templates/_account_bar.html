@@ -11,8 +11,8 @@
             <a class="nav-link" href="{% url 'account_settings' %}"><i class="fa fa-cog"></i> {% trans "Settings" %}</a>
         </li>
          <li class="nav-item">
-            <a class="nav-link" href="{% url 'account_invites' %}">{% trans "Invites" %} {% invites_remaining request.user %}<i class="fa fa-cog"></i> {% trans "Invites" %}</a>
-        </li>       
+            <a class="nav-link" href="{% url 'invites' %}"><i class="fa fa-cog"></i> {% trans "Invites" %}</a>
+        </li> 
         <li class="nav-item">
             <a class="nav-link" id="account_logout" href="{% url 'account_logout' %}"><i class="fa fa-power-off"></i> {% trans "Log out" %}</a>
         </li>
