@@ -17,6 +17,8 @@ pinax-likes = ">=3.0.1"
 pinax-messages = ">=2.0.2"
 pinax-testimonials = ">=2.0.4"
 pinax-announcements = ">=3.0.1"
+pinax-invitations = "==6.1.1"
+pinax-notifications = "==5.0.1"
 
 
 [dev-packages]

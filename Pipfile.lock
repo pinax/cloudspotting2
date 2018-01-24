@@ -1,18 +1,18 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "5f1707e360b9d7c98168acb87a5d2bfcce42a0a8add1766ec6a2c36f04447902"
+            "sha256": "b603cdc31508fe2c573131fa330f9a7b3826581d3b0155bddf7bb6f65807638b"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
-            "implementation_version": "3.6.3",
+            "implementation_version": "3.6.0",
             "os_name": "posix",
             "platform_machine": "x86_64",
             "platform_python_implementation": "CPython",
-            "platform_release": "17.3.0",
+            "platform_release": "16.7.0",
             "platform_system": "Darwin",
-            "platform_version": "Darwin Kernel Version 17.3.0: Thu Nov  9 18:09:22 PST 2017; root:xnu-4570.31.3~1/RELEASE_X86_64",
-            "python_full_version": "3.6.3",
+            "platform_version": "Darwin Kernel Version 16.7.0: Wed Oct  4 00:17:00 PDT 2017; root:xnu-3789.71.6~1/RELEASE_X86_64",
+            "python_full_version": "3.6.0",
             "python_version": "3.6",
             "sys_platform": "darwin"
         },
@@ -143,6 +143,13 @@
             ],
             "version": "==3.0.1"
         },
+        "pinax-invitations": {
+            "hashes": [
+                "sha256:b02410c20a844144ffe4989efb205b9c73d92ad2a0e5fafa811507f5a68fa6b8",
+                "sha256:9db31a72adf52e9b4a3bd3e06a0d9006854631d5e9821bba3101aaf8847e911a"
+            ],
+            "version": "==6.1.1"
+        },
         "pinax-likes": {
             "hashes": [
                 "sha256:7c1a35fa63105e95c76aab227fbeeb15595073a1b1500534a4879417ac818363",
@@ -156,6 +163,13 @@
                 "sha256:5dfaa4a38e125e9b9b0e6d98eede2015df74eeaaea63a0394f326ce902322060"
             ],
             "version": "==2.0.2"
+        },
+        "pinax-notifications": {
+            "hashes": [
+                "sha256:32713ef0ec568623f582876169b68e2f9756a3fff7b9da42833f464e27b3e9e0",
+                "sha256:e12b45e8e7019b35bda566cdf1e46c83be1a1873235b4245d929485efd24632a"
+            ],
+            "version": "==5.0.1"
         },
         "pinax-templates": {
             "hashes": [

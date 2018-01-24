@@ -141,6 +141,8 @@ INSTALLED_APPS = [
     "pinax.messages",
     "pinax.testimonials",
     "pinax.webanalytics",
+    "pinax.invitations",
+    "pinax.notifications",
 
     # project
     "cloudspotting2",

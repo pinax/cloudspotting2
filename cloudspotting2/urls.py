@@ -14,7 +14,9 @@ urlpatterns = [
     path("likes/", include("pinax.likes.urls", namespace="pinax_likes")),
     path("announcements/", include("pinax.announcements.urls", namespace="pinax_announcements")),
     path("messages/", include("pinax.messages.urls", namespace="pinax_messages")),
-
+    path("invitations/", include("pinax.invitations.urls", namespace="pinax_invitations")),
+    path("notifications/", include("pinax.notifications.urls", namespace="pinax_notifications")),
+    
     path("cloudspotting/", views.CloudSpottingListView.as_view(), name="cloudspotting_list"),
     path("cloudspotting/create/", views.CloudSpottingCreateView.as_view(), name="cloudspotting_create"),
     path("cloudspotting/<int:pk>/", views.CloudSpottingDetailView.as_view(), name="cloudspotting_detail"),
