@@ -1,0 +1,19 @@
+{% extends "site_base.html" %}
+
+{% load pinax_invitations_tags %}
+
+{% block body %}
+    <header class="title-bar">
+        <h1>Invites</h1>
+    </header>
+    <p class="alert alert-info">
+        Placeholder.
+    </p>
+    <div class="invites">
+        {% invite_form request.user %}
+        <div class="sent">
+            <h3>Invitations Sent</h3>
+            {% invites_sent request.user %}
+        </div>
+    </div>
+{% endblock %}
