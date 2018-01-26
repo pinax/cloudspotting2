@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b603cdc31508fe2c573131fa330f9a7b3826581d3b0155bddf7bb6f65807638b"
+            "sha256": "1883d98887902269ca3310f66cd8d109497ab59d0aa36297386b99a7489dec63"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -145,10 +145,10 @@
         },
         "pinax-invitations": {
             "hashes": [
-                "sha256:b02410c20a844144ffe4989efb205b9c73d92ad2a0e5fafa811507f5a68fa6b8",
-                "sha256:9db31a72adf52e9b4a3bd3e06a0d9006854631d5e9821bba3101aaf8847e911a"
+                "sha256:7b0bcb0bf893c3c04b5de9fde9ddf2291f8d462d5ac331a2490c14be0af2bac9",
+                "sha256:2240533ce96cd7acbc18d7323562a8e15fb0d284d6bd2d8bdd935f3f28ad92c2"
             ],
-            "version": "==6.1.1"
+            "version": "==6.1.2"
         },
         "pinax-likes": {
             "hashes": [
@@ -173,9 +173,10 @@
         },
         "pinax-templates": {
             "hashes": [
-                "sha256:c85ef43ca0cd9300cd0b9d14d62b39ec3c97eb49c1b27c8ef005e72369f43140"
+                "sha256:a2d19ef186e121afcb913d0fb782c2c97d057c09af14490822746d31a6069f98",
+                "sha256:7f4e3a887179a614252991ea86ec197ba4d54091e19982688b46e08bc2453580"
             ],
-            "version": "==1.0.0"
+            "version": "==1.0.2"
         },
         "pinax-testimonials": {
             "hashes": [
