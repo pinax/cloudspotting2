@@ -1,4 +1,4 @@
-![](http://pinaxproject.com/pinax-design/patches/pinax-teams.svg)
+![](http://pinaxproject.com/pinax-design/patches/blank.svg)
 
 # Cloudspotting 2
 
