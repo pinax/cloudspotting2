@@ -37,10 +37,11 @@ Django apps, themes, and starter project templates. This collection can be found
 
 ### Overview
 
-`cloudspotting2` allows you to create collections of similar cloud images, view other people’s collections, “like” a collection, etc.
-It demonstrates integration of `pinax-images`, `pinax-likes`, `pinax-testimonials`,
-`pinax-messages`, `pinax-eventlog`, `pinax-webanalytics`, and `pinax-announcements`
-with a real Django application.
+As a web application, `cloudspotting2` allows you to create collections of similar cloud images, view other people’s collections, “like” a collection, invite someone to join in the fun, etc.
+
+`cloudspotting2` demonstrates Pinax core apps `django-user-accounts`, `pinax-webanalytics`, `pinax-eventlog`, and `pinax-templates` as provided from the Pinax "account" starter project.
+
+`cloudspotting2` integrates Pinax feature apps including `pinax-images`, `pinax-likes`, `pinax-testimonials`, `pinax-invitations`, `pinax-messages`, and `pinax-announcements`.
 
 
 ## Installation
