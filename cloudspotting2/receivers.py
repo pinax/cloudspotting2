@@ -1,10 +1,15 @@
 from django.dispatch import receiver
 
-from account.signals import password_changed
-from account.signals import user_sign_up_attempt, user_signed_up
-from account.signals import user_login_attempt, user_logged_in
-
+from account.signals import (
+    password_changed,
+    user_logged_in,
+    user_login_attempt,
+    user_sign_up_attempt,
+    user_signed_up,
+)
 from pinax.eventlog.models import log
+from pinax.invitations.signals import invite_accepted, joined_independently
+from pinax.notifications.models import send
 
 
 @receiver(user_logged_in)
@@ -57,3 +62,25 @@ def handle_user_signed_up(sender, **kwargs):
         action="USER_SIGNED_UP",
         extra={}
     )
+
+
+@receiver(invite_accepted)
+def handle_invite_accepted(sender, **kwargs):
+    invitation = kwargs.get("invitation")
+    log(
+        user=invitation.to_user,
+        action="INVITE_ACCEPTED",
+        extra={}
+    )
+    send([invitation.from_user], "invite_accepted", {"joiner": invitation.to_user})
+
+
+@receiver(joined_independently)
+def handle_joined_independently(sender, **kwargs):
+    invitation = kwargs.get("invitation")
+    log(
+        user=invitation.to_user,
+        action="JOINED_INDEPENDENTLY",
+        extra={}
+    )
+    send([invitation.from_user], "joined_independently", {"joiner": invitation.to_user})

@@ -1,9 +1,12 @@
 from django.contrib.contenttypes.models import ContentType
+from django.core import mail
+from django.urls import reverse
 
 from pinax.announcements.models import Announcement
 from pinax.images.models import ImageSet
+from pinax.invitations.models import InvitationStat, JoinInvitation
 from pinax.likes.models import Like
-
+from pinax.notifications.models import NoticeType
 from test_plus.test import TestCase
 
 from .models import CloudSpotting
@@ -105,7 +108,7 @@ class TestLikes(TestCase):
                 receiver_object_id=self.spotting.pk
             )
             # Make sure the Like/Unlike value has toggled to "Unlike"
-            response = self.get("cloudspotting_detail", pk=self.spotting.pk)
+            self.get("cloudspotting_detail", pk=self.spotting.pk)
             self.response_200()
             context_object = self.get_context("object")
             self.assertTrue(context_object.liked)
@@ -126,7 +129,7 @@ class TestLikes(TestCase):
                 receiver_object_id=self.spotting.pk
             )
             # Make sure the single list object is liked
-            response = self.get("cloudspotting_list")
+            self.get("cloudspotting_list")
             self.response_200()
             context_object = self.get_context("object_list")[0]
             self.assertTrue(context_object.liked)
@@ -159,3 +162,37 @@ class TestAnnouncements(TestCase):
             response = self.get("cloudspotting_list")
             self.response_200()
             self.assertIn(bytes(title, encoding="utf-8"), response.content)
+
+
+class TestInvitationsNotifications(TestCase):
+
+    fixtures = ["noticetypes.json"]
+
+    def test_invitation_accepted(self):
+        inviter = self.make_user("inviter")
+        InvitationStat.add_invites(2)
+
+        invitee_email = "invitee@example.com"
+        with self.login(inviter):
+            post_data = {"email_address": invitee_email}
+            self.post("pinax_invitations:invite", data=post_data)
+            self.response_200()
+
+        invitation = JoinInvitation.objects.first()
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertIn(invitee_email, mail.outbox[0].to)
+        mail.outbox.clear()
+
+        # Accept the invitation
+        post_data = dict(
+            username="invitee",
+            password="notasecret",
+            password_confirm="notasecret",
+            email=invitee_email,
+        )
+
+        url = reverse("account_signup")
+        self.post(url + f"?code={invitation.signup_code.code}", data=post_data)
+
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertIn(inviter.email, mail.outbox[0].to)

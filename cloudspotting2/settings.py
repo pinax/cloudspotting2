@@ -1,6 +1,5 @@
 import os
 
-
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
 BASE_DIR = PACKAGE_ROOT
@@ -138,12 +137,12 @@ INSTALLED_APPS = [
     "pinax.announcements",
     "pinax.eventlog",
     "pinax.images",
+    "pinax.invitations",
     "pinax.likes",
     "pinax.messages",
+    "pinax.notifications",
     "pinax.testimonials",
     "pinax.webanalytics",
-    "pinax.invitations",
-    "pinax.notifications",
 
     # project
     "cloudspotting2",
