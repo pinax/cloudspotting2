@@ -78,62 +78,6 @@ class TestViews(TestCase):
             )
 
 
-class TestLikes(TestCase):
-
-    def setUp(self):
-        super(TestLikes, self).setUp()
-        self.user = self.make_user("cirrus")
-        self.cloud_type = "cumulonimbus"
-        self.spotting = CloudSpotting.objects.create(
-            cloud_type=self.cloud_type,
-            user=self.user,
-            image_set=ImageSet.objects.create(created_by=self.user)
-        )
-        self.content_type = ContentType.objects.get(model="cloudspotting")
-
-    def test_detail_like(self):
-        """
-        Ensure template context object is liked.
-        """
-        with self.login(self.user):
-            # Get detail for a not-liked collection.
-            self.get("cloudspotting_detail", pk=self.spotting.pk)
-            self.response_200()
-
-            # Like the collection
-            Like.objects.create(
-                sender=self.user,
-                receiver_content_type=self.content_type,
-                receiver_object_id=self.spotting.pk
-            )
-            # Make sure the Like/Unlike value has toggled to "Unlike"
-            self.get("cloudspotting_detail", pk=self.spotting.pk)
-            self.response_200()
-            context_object = self.get_context("object")
-            self.assertTrue(context_object.liked)
-
-    def test_list_like(self):
-        """
-        Ensure list content object(s) are liked.
-        """
-        with self.login(self.user):
-            # List a not-liked collection.
-            self.get("cloudspotting_list")
-            self.response_200()
-
-            # Like the collection
-            Like.objects.create(
-                sender=self.user,
-                receiver_content_type=self.content_type,
-                receiver_object_id=self.spotting.pk
-            )
-            # Make sure the single list object is liked
-            self.get("cloudspotting_list")
-            self.response_200()
-            context_object = self.get_context("object_list")[0]
-            self.assertTrue(context_object.liked)
-
-
 class TestAnnouncements(TestCase):
 
     def setUp(self):
@@ -184,8 +128,9 @@ class TestInvitationsNotifications(TestCase):
         mail.outbox.clear()
 
         # Accept the invitation
+        invitee_username = "invitee"
         post_data = dict(
-            username="invitee",
+            username=invitee_username,
             password="notasecret",
             password_confirm="notasecret",
             email=invitee_email,
@@ -196,3 +141,40 @@ class TestInvitationsNotifications(TestCase):
 
         self.assertEqual(len(mail.outbox), 1)
         self.assertIn(inviter.email, mail.outbox[0].to)
+        self.assertIn(
+            f"User \"{invitee_username}\" ({invitee_email}) joined this site at your invitation",
+            mail.outbox[0].body
+        )
+
+
+class TestLikesNotifications(TestCase):
+    """
+    Integration tests proving if user posts to "Like" view,
+    owner of the liked collection is notified.
+    """
+    fixtures = ["noticetypes.json"]
+
+    def test_image_liked(self):
+        """Verify that collection owner is notified when a user "likes" the collection"""
+        owner = self.make_user("owner")
+        cloud_type = "cumulonimbus"
+        spotting = CloudSpotting.objects.create(
+            cloud_type=cloud_type,
+            user=owner,
+            image_set=ImageSet.objects.create(created_by=owner)
+        )
+        content_type = ContentType.objects.get(model="cloudspotting")
+
+        liker = self.make_user("liker")
+        with self.login(liker):
+            self.assertFalse(Like.objects.filter(receiver_content_type=content_type, receiver_object_id=spotting.pk).exists())
+            self.post("pinax_likes:like_toggle", content_type.pk, spotting.pk)
+            self.response_302()
+            self.assertTrue(Like.objects.filter(receiver_content_type=content_type, receiver_object_id=spotting.pk).exists())
+
+            self.assertEqual(len(mail.outbox), 1)
+            self.assertIn(owner.email, mail.outbox[0].to)
+            self.assertIn(
+                f"User \"{liker.username}\" liked your \"{spotting.cloud_type}\" collection",
+                mail.outbox[0].body
+            )

@@ -9,6 +9,7 @@ from account.signals import (
 )
 from pinax.eventlog.models import log
 from pinax.invitations.signals import invite_accepted, joined_independently
+from pinax.likes.signals import object_liked
 from pinax.notifications.models import send
 
 
@@ -72,7 +73,11 @@ def handle_invite_accepted(sender, **kwargs):
         action="INVITE_ACCEPTED",
         extra={}
     )
-    send([invitation.from_user], "invite_accepted", {"joiner": invitation.to_user})
+    send(
+        [invitation.from_user],
+        "invite_accepted",
+        extra_context={"joiner": invitation.to_user.username, "email": invitation.to_user.email}
+    )
 
 
 @receiver(joined_independently)
@@ -83,4 +88,27 @@ def handle_joined_independently(sender, **kwargs):
         action="JOINED_INDEPENDENTLY",
         extra={}
     )
-    send([invitation.from_user], "joined_independently", {"joiner": invitation.to_user})
+    send(
+        [invitation.from_user],
+        "joined_independently",
+        extra_context={"joiner": invitation.to_user.username}
+    )
+
+
+@receiver(object_liked)
+def handle_object_liked(sender, **kwargs):
+    like = kwargs.get("like")
+    liker = like.sender
+    cloudspotting = like.receiver
+    log(
+        user=liker,
+        action="LIKED_CLOUDSPOTTING",
+        extra={
+            "pk": cloudspotting.pk,
+        }
+    )
+    send(
+        [cloudspotting.user],
+        "cloudspotting_liked",
+        extra_context={"cloud_type": cloudspotting.cloud_type, "liker": liker.username}
+    )

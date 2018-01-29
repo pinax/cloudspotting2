@@ -20,9 +20,9 @@
 {
   "model": "pinax_notifications.noticetype",
   "fields": {
-    "label": "photo_liked",
-    "display": "Photo Liked",
-    "description": "your photo has been liked",
+    "label": "cloudspotting_liked",
+    "display": "Cloudspotting Liked",
+    "description": "your cloudspotting collection has been liked",
     "default": 2
   }
 }
