@@ -16,6 +16,7 @@ DATABASES = {
 
 ALLOWED_HOSTS = [
     "localhost",
+    "127.0.0.1",
 ]
 
 # Local time zone for this installation. Choices can be found here:
@@ -141,6 +142,8 @@ INSTALLED_APPS = [
     "pinax.messages",
     "pinax.testimonials",
     "pinax.webanalytics",
+    "pinax.invitations",
+    "pinax.notifications",
 
     # project
     "cloudspotting2",
@@ -201,3 +204,5 @@ AUTHENTICATION_BACKENDS = [
 PINAX_LIKES_LIKABLE_MODELS = {
     "cloudspotting2.CloudSpotting": {},
 }
+
+PINAX_INVITATIONS_DEFAULT_INVITE_ALLOCATION = -1

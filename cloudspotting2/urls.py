@@ -2,6 +2,7 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls.static import static
+from django.views.generic import TemplateView
 
 from . import views
 
@@ -14,7 +15,10 @@ urlpatterns = [
     path("likes/", include("pinax.likes.urls", namespace="pinax_likes")),
     path("announcements/", include("pinax.announcements.urls", namespace="pinax_announcements")),
     path("messages/", include("pinax.messages.urls", namespace="pinax_messages")),
-
+    path("invitations/", include("pinax.invitations.urls", namespace="pinax_invitations")),
+    path("invite/", TemplateView.as_view(template_name="cloudspotting2/invites.html"), name="invites"),
+    path("notifications/", include("pinax.notifications.urls", namespace="pinax_notifications")),
+    
     path("cloudspotting/", views.CloudSpottingListView.as_view(), name="cloudspotting_list"),
     path("cloudspotting/create/", views.CloudSpottingCreateView.as_view(), name="cloudspotting_create"),
     path("cloudspotting/<int:pk>/", views.CloudSpottingDetailView.as_view(), name="cloudspotting_detail"),
