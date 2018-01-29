@@ -6,7 +6,6 @@ from pinax.announcements.models import Announcement
 from pinax.images.models import ImageSet
 from pinax.invitations.models import InvitationStat, JoinInvitation
 from pinax.likes.models import Like
-from pinax.notifications.models import NoticeType
 from test_plus.test import TestCase
 
 from .models import CloudSpotting
@@ -98,7 +97,7 @@ class TestLikes(TestCase):
         """
         with self.login(self.user):
             # Get detail for a not-liked collection.
-            response = self.get("cloudspotting_detail", pk=self.spotting.pk)
+            self.get("cloudspotting_detail", pk=self.spotting.pk)
             self.response_200()
 
             # Like the collection
@@ -119,7 +118,7 @@ class TestLikes(TestCase):
         """
         with self.login(self.user):
             # List a not-liked collection.
-            response = self.get("cloudspotting_list")
+            self.get("cloudspotting_list")
             self.response_200()
 
             # Like the collection
