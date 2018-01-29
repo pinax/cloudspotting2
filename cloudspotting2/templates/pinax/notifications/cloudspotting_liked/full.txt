@@ -1,0 +1,1 @@
+{% autoescape off %}{% load i18n %}{% blocktrans %}User "{{ liker }}" liked your "{{ cloud_type }}" collection!{% endblocktrans %}{% endautoescape %}

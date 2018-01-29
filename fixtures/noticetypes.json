@@ -2,9 +2,27 @@
 {
   "model": "pinax_notifications.noticetype",
   "fields": {
-    "label": "photo_liked",
-    "display": "Photo Liked",
-    "description": "your photo has been liked",
+    "label": "invite_accepted",
+    "display": "Invitation Accepted",
+    "description": "someone you invited has accepted your invitation",
+    "default": 2
+  }
+},
+{
+  "model": "pinax_notifications.noticetype",
+  "fields": {
+    "label": "joined_independently",
+    "display": "Invitee Joined",
+    "description": "someone you invited has joined this site",
+    "default": 2
+  }
+},
+{
+  "model": "pinax_notifications.noticetype",
+  "fields": {
+    "label": "cloudspotting_liked",
+    "display": "Cloudspotting Liked",
+    "description": "your cloudspotting collection has been liked",
     "default": 2
   }
 }

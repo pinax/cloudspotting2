@@ -1,0 +1,1 @@
+{% autoescape off %}{% load i18n %}{% blocktrans %}User "{{ joiner }}" ({{ email }}) joined this site at your invitation{% endblocktrans %}{% endautoescape %}

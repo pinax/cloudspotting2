@@ -1,0 +1,1 @@
+{% autoescape off %}{% load i18n %}{% blocktrans %}{{ joiner }} ({{ joiner.email }}) joined {{ site }}{% endblocktrans %}{% endautoescape %}
