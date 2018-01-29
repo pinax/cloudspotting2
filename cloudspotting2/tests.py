@@ -168,6 +168,7 @@ class TestInvitationsNotifications(TestCase):
     fixtures = ["noticetypes.json"]
 
     def test_invitation_accepted(self):
+        """Verify inviter whose invitee accepts invitation is notified"""
         inviter = self.make_user("inviter")
         InvitationStat.add_invites(2)
 
