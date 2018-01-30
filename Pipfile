@@ -8,22 +8,22 @@ name = "pypi"
 [packages]
 
 django = "==2.0.1"
-pinax-templates = "*"
+pinax-templates = "==1.0.4"
 django-user-accounts = "==2.0.3"
-pinax-eventlog = "==2.0.2"
-pinax-webanalytics = "==4.0.1"
-pinax-images = ">=3.0.1"
-pinax-likes = ">=3.0.1"
-pinax-messages = ">=2.0.2"
-pinax-testimonials = ">=2.0.4"
-pinax-announcements = ">=3.0.1"
+pinax-eventlog = "==2.0.3"
+pinax-webanalytics = "==4.0.2"
+pinax-images = "==3.0.1"
+pinax-likes = "==3.0.1"
+pinax-messages = "==2.0.2"
+pinax-testimonials = "==2.0.4"
+pinax-announcements = "==3.0.2"
 pinax-invitations = "==6.1.2"
 pinax-notifications = "==5.0.2"
 
 
 [dev-packages]
 
-django-test-plus = "*"
+django-test-plus = ">=1.0.22"
 
 
 [requires]
