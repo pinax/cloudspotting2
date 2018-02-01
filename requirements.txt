@@ -1,0 +1,14 @@
+django>=2.0
+django-user-accounts==2.0.3
+pinax-announcements==3.0.2
+pinax-eventlog==2.0.3
+pinax-images==3.0.1
+pinax-invitations==6.1.2
+pinax-likes==3.0.1
+pinax-messages==2.0.2
+pinax-notifications==5.0.2
+pinax-templates==1.0.4
+pinax-testimonials==2.0.4
+pinax-webanalytics==4.0.2
+
+django-test-plus>=1.0.22

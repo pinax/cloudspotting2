@@ -44,7 +44,7 @@ As a web application, `cloudspotting2` allows you to create collections of simil
 
 ## Installation
 
-Ensure you have `pipenv` installed and working.
+Ensure you have `pipenv` installed and working. This project ships with `Pipfile` and `Pipfile.lock`.
 
 ```shell
 $ mkdir cloudspotting2
@@ -53,6 +53,20 @@ $ cd cloudspotting2
 $ pipenv --three  # create Python 3 virtualenv
 $ pipenv shell  # activate virtualenv
 $ pipenv install  # install requirements from Pipfile.lock
+$ npm install  # install requirements from package-lock.json
+$ ./manage.py migrate
+$ ./manage.py loaddata noticetypes.json sites.json
+$ npm run dev
+```
+
+If you are not using `pipenv`, follow standard virtualenv procedures using `requirements.txt`:
+
+```shell
+$ virtualenv cloudspotting2
+$ git clone https://github.com/pinax/cloudspotting2.git cloudspotting2
+$ source cloudspotting2/bin/activate
+$ cd cloudspotting2
+$ pip install -r requirements.txt
 $ npm install  # install requirements from package-lock.json
 $ ./manage.py migrate
 $ ./manage.py loaddata noticetypes.json sites.json
