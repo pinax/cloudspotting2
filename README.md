@@ -57,7 +57,7 @@ $ pipenv shell  # activate virtualenv
 $ pipenv install  # install requirements from Pipfile.lock
 $ npm install  # install requirements from package-lock.json
 $ ./manage.py migrate
-$ ./manage.py loaddata
+$ ./manage.py loaddata noticetypes.json sites.json
 $ npm run dev
 ```
 
