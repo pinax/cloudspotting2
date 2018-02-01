@@ -50,14 +50,14 @@ Ensure you have `pipenv` installed and working.
 
 ```shell
 $ mkdir cloudspotting2
-$ git clone https://github.com/pinax/cloudspotting2.git
+$ git clone https://github.com/pinax/cloudspotting2.git cloudspotting2
 $ cd cloudspotting2
 $ pipenv --three  # create Python 3 virtualenv
 $ pipenv shell  # activate virtualenv
 $ pipenv install  # install requirements from Pipfile.lock
 $ npm install  # install requirements from package-lock.json
 $ ./manage.py migrate
-$ ./manage.py loaddata
+$ ./manage.py loaddata noticetypes.json sites.json
 $ npm run dev
 ```
 
