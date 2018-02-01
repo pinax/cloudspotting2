@@ -2,13 +2,11 @@
 
 # Cloudspotting 2
 
-[![](https://img.shields.io/pypi/v/pinax-teams.svg)](https://pypi.python.org/pypi/pinax-teams/)
-
-[![CircleCi](https://img.shields.io/circleci/project/github/pinax/pinax-teams.svg)](https://circleci.com/gh/pinax/pinax-teams)
-[![Codecov](https://img.shields.io/codecov/c/github/pinax/pinax-teams.svg)](https://codecov.io/gh/pinax/pinax-teams)
-[![](https://img.shields.io/github/contributors/pinax/pinax-teams.svg)](https://github.com/pinax/pinax-teams/graphs/contributors)
-[![](https://img.shields.io/github/issues-pr/pinax/pinax-teams.svg)](https://github.com/pinax/pinax-teams/pulls)
-[![](https://img.shields.io/github/issues-pr-closed/pinax/pinax-teams.svg)](https://github.com/pinax/pinax-teams/pulls?q=is%3Apr+is%3Aclosed)
+[![CircleCi](https://img.shields.io/circleci/project/github/pinax/cloudspotting2.svg)](https://circleci.com/gh/pinax/cloudspotting2)
+[![Codecov](https://img.shields.io/codecov/c/github/pinax/cloudspotting2.svg)](https://codecov.io/gh/pinax/cloudspotting2)
+[![](https://img.shields.io/github/contributors/pinax/cloudspotting2.svg)](https://github.com/pinax/cloudspotting2/graphs/contributors)
+[![](https://img.shields.io/github/issues-pr/pinax/cloudspotting2.svg)](https://github.com/pinax/cloudspotting2/pulls)
+[![](https://img.shields.io/github/issues-pr-closed/pinax/cloudspotting2.svg)](https://github.com/pinax/cloudspotting2/pulls?q=is%3Apr+is%3Aclosed)
 
 [![](http://slack.pinaxproject.com/badge.svg)](http://slack.pinaxproject.com/)
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
