@@ -2,6 +2,13 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  .tessellation {
+      position: relative;
+      margin: 40px auto;
+      img {
+          position: absolute;
+      }
+  }
 }
 main {
   margin-top: 20px;

@@ -12,6 +12,7 @@ const ImagePanel = require('pinax-images-panel');
 
 import ajaxSendMethod from './ajax';
 import handleMessageDismiss from './messages';
+import populateTessellations from './tessellations'
 
 $(() => {
     $(document).ajaxSend(ajaxSendMethod);
@@ -37,6 +38,12 @@ $(() => {
       const uploadUrl = imagePanelElement.getAttribute('data-upload-url');
       ReactDOM.render(<ImagePanel imagesUrl={imagesUrl} initialUploadUrl={uploadUrl} initialImageSetId={imageSetId}/>, imagePanelElement);
     }
+
+    $.ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+
+    populateTessellations();
 
     handleMessageDismiss();
 });
