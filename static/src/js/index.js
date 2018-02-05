@@ -39,10 +39,6 @@ $(() => {
       ReactDOM.render(<ImagePanel imagesUrl={imagesUrl} initialUploadUrl={uploadUrl} initialImageSetId={imageSetId}/>, imagePanelElement);
     }
 
-    $.ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-
     populateTessellations();
 
     handleMessageDismiss();

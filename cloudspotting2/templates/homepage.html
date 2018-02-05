@@ -88,3 +88,12 @@
     </section>
 </main>
 {% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+<script type="text/javascript">
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+{% endblock %}

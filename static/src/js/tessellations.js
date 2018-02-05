@@ -37,19 +37,19 @@ const populateTessellations = () => {
             y = position.my;
             row = position.row;
 
-            const repoUrl = `${BASE_REPO_URL}${apps[i]}/`
+            const repoUrl = `${BASE_REPO_URL}${apps[i]}/`;
             var anchor = document.createElement('a');
-            anchor.href = repoUrl
-            anchor.title = apps[i]
-            anchor.setAttribute('data-toggle', "tooltip")
+            anchor.href = repoUrl;
 
             const imageSrcUrl = `${BASE_URL}${apps[i]}.svg`;
             const $img = document.createElement('img');
-            $img.setAttribute('style', `left:${position.mx}px; top:${position.my}px`)
+            $img.setAttribute('style', `left:${position.mx}px; top:${position.my}px`);
             $img.setAttribute('src', imageSrcUrl);
+            $img.setAttribute('title', apps[i]);
+            $img.setAttribute('data-toggle', "tooltip");
 
-            anchor.appendChild($img)
-            $(tess).append(anchor)
+            anchor.appendChild($img);
+            $(tess).append(anchor);
         }
         $(tess).css({
            width: `${(PADDING * 2) + ((WIDTH + MARGIN) * itemsPerRow) - MARGIN}px`,
